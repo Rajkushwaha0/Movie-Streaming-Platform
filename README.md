@@ -2,6 +2,7 @@
 
 - create react project using vite
 - configure tailwindCSS for styling
+- header
 
 # Features
 
