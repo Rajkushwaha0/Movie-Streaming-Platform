@@ -1,8 +1,10 @@
-# Netflix-GPT
+# Movie Streaming Platform - GPT
 
 - create react project using vite
 - configure tailwindCSS for styling
+- Main Routing (Routes/Route)
 - header
+- Login Form
 
 # Features
 

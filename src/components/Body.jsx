@@ -1,13 +1,5 @@
-import Browse from "./Browse";
-import Header from "./Header";
-
 const Body = () => {
-  return (
-    <div>
-      <Header />
-      <Browse />
-    </div>
-  );
+  return <div>Body</div>;
 };
 
 export default Body;
