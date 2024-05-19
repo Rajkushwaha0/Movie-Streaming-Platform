@@ -5,6 +5,12 @@
 - Main Routing (Routes/Route)
 - header
 - Login Form
+- Signup Form
+- Form Validation
+- useRef Hook
+- Firebase Setup
+- Deploying our app to production
+- Create Signup user account
 
 # Features
 
