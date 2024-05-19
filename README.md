@@ -14,6 +14,7 @@
 - Create Signin user account
 - Tested SignUp / SignIn
 - Created our Redux Store with userSlice
+- Created header and Signout in Browser Page
 
 # Features
 

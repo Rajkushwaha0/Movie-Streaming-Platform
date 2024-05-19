@@ -5,6 +5,7 @@ import { checkValidData } from "../utils/validate";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
@@ -22,6 +23,7 @@ const Login = () => {
   function toggleSignInForm() {
     setIsSignIn(!isSignIn);
   }
+
   function handleButtonClick() {
     //validate the form data
     const nameValue = !isSignIn ? name.current.value : "signin";
@@ -53,13 +55,18 @@ const Login = () => {
       createUserWithEmailAndPassword(auth, emailValue, passwordValue)
         .then((userCredential) => {
           const user = userCredential.user;
-          navigate("/browser");
+          updateProfile(user, {
+            displayName: nameValue,
+          }).then(() => {
+            setIsSignIn(!isSignIn);
+          });
+
           // console.log(user);
         })
         .catch((error) => {
           //const errorCode = error.code;
           //const errorMessage = error.message;
-          setErrorMessage("Please Signup again,some error occured");
+          setErrorMessage(errorMessage);
         });
     }
   }
