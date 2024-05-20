@@ -17,6 +17,9 @@
 - Created header and Signout in Browser Page
 - Bugfix, if the user is not logged in redirect browser to login and vice versa
 - Added welcome,{username} in header
+- install axios for fetch data from API
+- created redux movieSlice for appStore
+- curated data into store from axios.get()
 
 # Features
 
