@@ -15,6 +15,8 @@
 - Tested SignUp / SignIn
 - Created our Redux Store with userSlice
 - Created header and Signout in Browser Page
+- Bugfix, if the user is not logged in redirect browser to login and vice versa
+- Added welcome,{username} in header
 
 # Features
 

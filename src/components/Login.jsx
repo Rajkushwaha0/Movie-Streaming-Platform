@@ -1,6 +1,6 @@
 import Header from "./Header";
 import { BG_URL } from "../utils/constant";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { checkValidData } from "../utils/validate";
 import {
   createUserWithEmailAndPassword,
@@ -8,13 +8,10 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [isSignIn, setIsSignIn] = useState(true);
-
-  const navigate = useNavigate();
 
   const name = useRef(null);
   const email = useRef(null);
@@ -26,7 +23,7 @@ const Login = () => {
 
   function handleButtonClick() {
     //validate the form data
-    const nameValue = !isSignIn ? name.current.value : "signin";
+    const nameValue = !isSignIn ? name.current.value : "Tester-SignIn";
     const emailValue = email.current.value;
     const passwordValue = password.current.value;
     const validateMessage = checkValidData(
@@ -42,12 +39,8 @@ const Login = () => {
       signInWithEmailAndPassword(auth, emailValue, passwordValue)
         .then((userCredential) => {
           const user = userCredential.user;
-          navigate("/browser");
-          // console.log(user);
         })
         .catch((error) => {
-          //const errorCode = error.code;
-          //const errorMessage = error.message;
           setErrorMessage("Invalid Credential");
         });
     } else {
@@ -58,10 +51,10 @@ const Login = () => {
           updateProfile(user, {
             displayName: nameValue,
           }).then(() => {
-            setIsSignIn(!isSignIn);
+            dispatch(
+              addUser({ uid: uid, email: email, displayName: displayName })
+            );
           });
-
-          // console.log(user);
         })
         .catch((error) => {
           //const errorCode = error.code;
