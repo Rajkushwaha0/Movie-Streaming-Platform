@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-import Browse from "../components/Browse";
-import Login from "../components/Login";
-import Error from "../components/Error";
+import Browse from "../pages/Browse";
+import Login from "../pages/Login";
+import Error from "../pages/Error";
 
 function MainRouting() {
   return (

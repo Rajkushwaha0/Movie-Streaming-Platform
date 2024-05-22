@@ -1,4 +1,4 @@
-import Header from "./Header";
+import Header from "../components/Header";
 import { BG_URL } from "../utils/constant";
 import { useRef, useState } from "react";
 import { checkValidData } from "../utils/validate";
@@ -8,10 +8,12 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [isSignIn, setIsSignIn] = useState(true);
+  const dispatch = useDispatch();
 
   const name = useRef(null);
   const email = useRef(null);

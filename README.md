@@ -20,6 +20,10 @@
 - install axios for fetch data from API
 - created redux movieSlice for appStore
 - curated data into store from axios.get()
+- created trailer redux to store trailer
+- create background vedio / background title
+- fetch trailer from the movie id
+- used custom hook (useNowPlayingMovie, useMovieTrailer)
 
 # Features
 
