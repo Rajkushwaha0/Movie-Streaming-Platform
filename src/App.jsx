@@ -2,11 +2,7 @@ import "./App.css";
 import MainRouting from "./routes/MainRouting";
 
 function App() {
-  return (
-    <>
-      <MainRouting />
-    </>
-  );
+  return <MainRouting />;
 }
 
 export default App;

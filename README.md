@@ -1,3 +1,19 @@
+# Features
+
+- Signup / Login
+  - Form
+  - else redirect to browser page
+- Browser (after authentication)
+  - Header
+  - Main Movie
+    - Trailer in Background
+    - Title in description
+    - Movie Suggestion
+      - MovieList \* N
+- Netflix GPT
+  - Search bar
+  - Movie Suggestions
+
 # Movie Streaming Platform - GPT
 
 - create react project using vite
@@ -24,19 +40,4 @@
 - create background vedio / background title
 - fetch trailer from the movie id
 - used custom hook (useNowPlayingMovie, useMovieTrailer)
-
-# Features
-
-- Signup / Login
-  - Form
-  - else redirect to browser page
-- Browser (after authentication)
-  - Header
-  - Main Movie
-    - Trailer in Background
-    - Title in description
-    - Movie Suggestion
-      - MovieList \* N
-- Netflix GPT
-  - Search bar
-  - Movie Suggestions
+- Build Secondary Component
