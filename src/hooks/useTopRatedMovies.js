@@ -8,7 +8,7 @@ const useTopRatedMovies = () => {
   const dispatch = useDispatch();
   const getPopularMovie = async (url) => {
     const toprate = await axios.get(url, API_OPTIONS);
-    console.log(toprate);
+    // console.log(toprate);
     dispatch(addTopRatedMovies(toprate.data.results));
   };
   useEffect(() => {

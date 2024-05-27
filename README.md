@@ -41,3 +41,9 @@
 - fetch trailer from the movie id
 - used custom hook (useNowPlayingMovie, useMovieTrailer)
 - Build Secondary Component
+- build movieList
+- build movieCard
+- building GPT search feature (first add btn for GPT in header)
+- builded configSlice to store language
+- builded gptSearch, gptSearchbar , gptSuggestion
+- changed header for language select
