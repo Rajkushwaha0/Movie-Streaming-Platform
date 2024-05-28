@@ -4,8 +4,8 @@ import GptSuggestion from "./GptSuggestion";
 const GptSearch = () => {
   return (
     <div>
-      <div className="absolute w-screen">
-        <img src={BG_URL} />
+      <div className="fixed -z-20">
+        <img className="h-screen w-screen" src={BG_URL} />
       </div>
       <GptSearchbar />
       <GptSuggestion />
