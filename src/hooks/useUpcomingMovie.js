@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addUpComingMovies } from "../utils/movieSlice";
 import { API_OPTIONS } from "../utils/constant";
 import { useEffect } from "react";
@@ -6,6 +6,7 @@ import axios from "axios";
 
 const useUpcomingMovie = () => {
   const dispatch = useDispatch();
+  const getMovie = useSelector((store) => store.movies?.upComingMovies);
   const getPopularMovie = async (url) => {
     const upcoming = await axios.get(url, API_OPTIONS);
     // console.log(upcoming);
@@ -13,7 +14,7 @@ const useUpcomingMovie = () => {
   };
   useEffect(() => {
     const url = "https://api.themoviedb.org/3/movie/upcoming";
-    getPopularMovie(url);
+    if (!getMovie) getPopularMovie(url);
   }, []);
 };
 

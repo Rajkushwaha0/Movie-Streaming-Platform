@@ -1,11 +1,12 @@
 import axios from "axios";
 import { API_OPTIONS } from "../utils/constant";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addTrailerVideo } from "../utils/movieSlice";
 
 const useMovieTrailer = (movieId) => {
   const dispatch = useDispatch();
+  const getTrailer = useSelector((store) => store.movies?.trailerVideo);
   const getMovieByID = async (movieId) => {
     const response = await axios.get(
       `https://api.themoviedb.org/3/movie/${movieId}/videos`,
@@ -22,7 +23,7 @@ const useMovieTrailer = (movieId) => {
     dispatch(addTrailerVideo(trailer));
   };
   useEffect(() => {
-    getMovieByID(movieId);
+    if (!getTrailer) getMovieByID(movieId);
   }, []);
 };
 

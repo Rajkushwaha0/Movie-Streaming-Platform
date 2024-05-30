@@ -7,6 +7,7 @@ const GptSearch = () => {
       <div className="fixed -z-20">
         <img className="h-screen w-screen" src={BG_URL} />
       </div>
+
       <GptSearchbar />
       <GptSuggestion />
     </div>

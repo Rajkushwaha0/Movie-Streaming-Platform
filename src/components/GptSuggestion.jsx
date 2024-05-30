@@ -4,8 +4,10 @@ const GptSuggestion = () => {
   const recomMovie = useSelector((store) => store.gpt?.recomMovie);
 
   return (
-    <div className="z-50 overflow-x-scroll no-scrollbar">
-      <MovieList movies={recomMovie} title="" />
+    <div className="bg-black px-4  mx-4 bg-opacity-70">
+      <div className=" overflow-x-scroll no-scrollbar">
+        <MovieList movies={recomMovie} title="" />
+      </div>
     </div>
   );
 };

@@ -12,6 +12,10 @@ const GptSearchbar = () => {
   const dispatch = useDispatch();
   async function handleDebounceFunction() {
     const text = inputText.current.value;
+    if (text == "") {
+      dispatch(addRecomMovie(null));
+      return;
+    }
     const res = await axios.get(
       `https://api.themoviedb.org/3/search/movie?query=${text}`,
       API_OPTIONS

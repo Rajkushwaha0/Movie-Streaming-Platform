@@ -11,6 +11,7 @@ const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
+  const RecomSearch = useSelector((store) => store.gpt?.showGPTSearch);
   function handleGPTSearch() {
     //Toggle GPT search btn
     dispatch(toggleGptSearch());
@@ -50,19 +51,21 @@ const Header = () => {
       <img className="w-44 cursor-pointer" src={logo} alt="" />
       {user && (
         <div className="flex flex-row items-center gap-3">
-          <select
-            className="px-4 py-2 bg-gray-700 text-white rounded-lg"
-            onChange={handleLanguageChange}
-          >
-            <option value="en">English</option>
-            <option value="hin">Hindi</option>
-            <option value="span">Spanish</option>
-          </select>
+          {RecomSearch && (
+            <select
+              className="px-4 py-2 bg-gray-700 text-white rounded-lg"
+              onChange={handleLanguageChange}
+            >
+              <option value="en">English</option>
+              <option value="hin">Hindi</option>
+              <option value="span">Spanish</option>
+            </select>
+          )}
           <button
             className="px-4 py-2 mx-2 rounded-lg text-white bg-blue-600"
             onClick={handleGPTSearch}
           >
-            GPT Search
+            {RecomSearch ? "Homepage" : "Search"}
           </button>
           <p className="text-white">
             {user && user.displayName && `Welcome, ${user.displayName}`}
