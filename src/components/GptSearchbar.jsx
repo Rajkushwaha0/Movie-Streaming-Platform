@@ -16,17 +16,29 @@ const GptSearchbar = () => {
       dispatch(addRecomMovie(null));
       return;
     }
-    const res = await axios.get(
-      `https://api.themoviedb.org/3/search/movie?query=${text}`,
-      API_OPTIONS
-    );
-    dispatch(addRecomMovie(res.data.results));
+    try {
+      const [res, res2] = await Promise.all([
+        axios.get(
+          `https://api.themoviedb.org/3/search/movie?query=${text}&include_adult=false&language=en-US&page=1`,
+          API_OPTIONS
+        ),
+        axios.get(
+          `https://api.themoviedb.org/3/search/movie?query=${text}&include_adult=false&language=en-US&page=2`,
+          API_OPTIONS
+        ),
+      ]);
+      // console.log(res, res2);
+      const combineMovie = [...res.data.results, ...res2.data.results];
+
+      dispatch(addRecomMovie(combineMovie));
+    } catch {}
   }
+
   return (
-    <div className=" z-50 w-3/4 mx-auto right-0 left-0 pt-[200px]">
+    <div className=" z-50 w-3/4 mx-auto right-0 left-0 pt-[40%] md:pt-[200px]">
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="flex flex-row mx-44 items-center"
+        className="w-full flex flex-row mx-auto items-center"
       >
         <input
           type="text"
@@ -37,9 +49,6 @@ const GptSearchbar = () => {
             handleDebounceFunction();
           })}
         />
-        {/* <button className="p-4 w-3/12 rounded-md bg-red-700 text-white font-semibold">
-          {lang[langKey].search}
-        </button> */}
       </form>
     </div>
   );

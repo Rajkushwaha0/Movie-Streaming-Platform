@@ -3,14 +3,15 @@ import GptSearchbar from "./GptSearchbar";
 import GptSuggestion from "./GptSuggestion";
 const GptSearch = () => {
   return (
-    <div>
+    <>
       <div className="fixed -z-20">
-        <img className="h-screen w-screen" src={BG_URL} />
+        <img className="h-screen w-screen object-cover" src={BG_URL} />
       </div>
-
-      <GptSearchbar />
-      <GptSuggestion />
-    </div>
+      <div>
+        <GptSearchbar />
+        <GptSuggestion />
+      </div>
+    </>
   );
 };
 

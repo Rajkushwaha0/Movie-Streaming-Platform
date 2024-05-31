@@ -47,3 +47,6 @@
 - builded configSlice to store language
 - builded gptSearch, gptSearchbar , gptSuggestion
 - changed header for language select
+- Used debounce function for optimization
+- builded recommendation system
+- responsiveness
